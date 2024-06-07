@@ -1,3 +1,53 @@
+import dotenv from 'dotenv';
+dotenv.config();
+
+import express from 'express';
+import './db/conn.mjs'; // Ensure this path is correct
+
+const PORT = process.env.PORT || 3190;
+const app = express();
+
+console.log('Attempting to connect to the database...');
+
+// JSON middleware
+app.use(express.json());
+
+// Route
+app.get('/', (req, res) => {
+  console.log('Received request on /');
+  res.send('Welcome to Lift Off!!!');
+});
+
+// Global Error Handling Middleware
+app.use((err, req, res, next) => {
+  console.error('Error occurred:', err);
+  res.status(500).send('Houston we have a problem...');
+});
+
+// Start Express Server
+app.listen(PORT, () => {
+  console.log(`Server running on port: ${PORT}`);
+});
+
+console.log('Server setup completed');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // // Requiring and configuring the .env file to access its variables
 // require('dotenv').config();
 // // Requiring express
