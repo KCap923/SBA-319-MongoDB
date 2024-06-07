@@ -1,6 +1,6 @@
-👋 Hi I’m Krystle, 
+👋 Hi I’m Krystle, this project was for creating a MongoDB Databases Application. I used Mockaroo to pooulate data for Nasa! We have astronauts, missins and spaceships!
 
-💻 Technology used ... VSC
+💻 Technology used ... VSC, MongoDB, MongoDB Compass, Mockaroo
 
 👀 I’m interested in ... Growing my knowledge in web development, and helping others along the way.
 
