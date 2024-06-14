@@ -1,6 +1,7 @@
+// This mjs extension lets Node know we are working w/a module file that is entended to be imported
 import { MongoClient } from 'mongodb';
 import dotenv from 'dotenv';
-dotenv.config();
+dotenv.config()
 
 // Storing connection from .env file
 const client = new MongoClient(process.env.ATLAS_URI, {
@@ -8,32 +9,21 @@ const client = new MongoClient(process.env.ATLAS_URI, {
   useUnifiedTopology: true,
 });
 
-// Connecting to Cluster
-// client.connect()
-//   .then(() => {
-//     console.log('Connected to MongoDB Atlas');
-//   })
-//   .catch(err => {
-//     console.error('MongoDB connection error:', err);
-//   });
-
-// export default client;
-
-
-
-
 let conn;
 try {
-  // Connecting to your cluster
+  // Connecting to my cluster
   conn = await client.connect();
   console.log('Successfully connected to Mongo!');
 } catch (e) {
   console.log(e);
 }
 
-// choosing and storing the db we will be using from our cluster
-let db = conn.db("farOut");
+// Storing the db that i'm using from my cluster
+let db = conn.db('farOut');
 
-
+export default client;
 
 //Connection file
+
+
+

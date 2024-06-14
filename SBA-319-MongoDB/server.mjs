@@ -1,16 +1,19 @@
+import express from 'express';
+import './db/conn.mjs'; 
 import dotenv from 'dotenv';
 dotenv.config();
-
-import express from 'express';
-import './db/conn.mjs'; // Ensure this path is correct
+// Import data from routes folder
+import astronauts from './routes/astronauts.mjs'
 
 const PORT = process.env.PORT || 3190;
 const app = express();
 
-console.log('Attempting to connect to the database...');
-
 // JSON middleware
 app.use(express.json());
+
+//Astronaut Routes
+app.use('/api/astronauts', astronauts)
+
 
 // Route
 app.get('/', (req, res) => {
@@ -23,6 +26,7 @@ app.use((err, req, res, next) => {
   console.error('Error occurred:', err);
   res.status(500).send('Houston we have a problem...');
 });
+
 
 // Start Express Server
 app.listen(PORT, () => {
